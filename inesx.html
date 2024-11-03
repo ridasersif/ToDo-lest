@@ -14,6 +14,7 @@
         <p>Lorem ipsum dolor sit amet.</p>
     </div>
     <div class="input">
+
         <input type="text" id="title" placeholder="title" >
         <div class="price"> 
             <input type="number" id="price" placeholder="price">
@@ -21,13 +22,53 @@
             <input type="number" id="ads" placeholder="ads">
             <input type="number" id="discount" placeholder="discount">
             <small id="total">234567</small>
-            <input type="number" placeholder="count" id="count">
-            <input type="text" placeholder="category" id="category">
-            <button id="submit"> submit</button>
+            
         </div>
+        <input type="number" placeholder="count" id="count">
+        <input type="text" placeholder="category" id="category">
+        <button id="submit"> submit</button>
 
     </div>
-    <div class="output"></div>
+    <div class="output">
+        <div class="searchBlock">
+            <input type="text" id="search" placeholder="search">
+            <div class="btnserch">
+                <button id="searchTitle">Sarch By Title</button>
+                <button id="searchCategory">Sarch By Category</button>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <th>id</th>
+                <th>title</th>
+                <th>price</th>
+                <th>taxes</th>
+                <th>ads</th>
+                <th>discount</th>
+                <th>total</th>
+                <th>category</th>
+                <th>UpDete</th>
+                <th>Delete</th>
+            </tr>
+            <tbody>
+<!--******************************************************-->
+                <tr>
+                    <td>1</td>
+                    <td>motorola</td>
+                    <td>300</td>
+                    <td>20</td>
+                    <td>23</td>
+                    <td>30</td>
+                    <td>3066</td>
+                    <td>opon</td>
+                    <td><button id="updete">updete</button></td>
+                    <td> <button id="delete">delate</button></td>
+                </tr>
+            
+            </tbody>
+        </table>
+
+    </div>
     
 </div>
 
