@@ -31,6 +31,7 @@ if(localStorage.product!=null){
     dataPro=[];
 }
 submit.onclick = function(){
+
     let newPro={
         title:title.value,
         price:price.value,
@@ -41,17 +42,78 @@ submit.onclick = function(){
         count:count.value,
         category:category.value
     }
-    dataPro.push(newPro);
+    dataPro.unshift(newPro);
     //save localstorage
     localStorage.setItem('product', JSON.stringify(dataPro))
     console.log(dataPro)
+    clearData();
+    showData();
+}
+//******************************************************** */
+// clear inputs
+function clearData(){
+    title.value=''
+    price.value=''
+    taxes.value=''
+    ads.value=''
+    discount.value=''
+    count.value=''
+    category.value=''
+    total.innerHTML=''
+     total.style.background='#a00d02'
+}
+//********************************************************** */
+//read
+function showData(){
+    let table='';
+    for(let i=0;i<dataPro.length;i++){
+        table += `
+        
+         <tr>
+                    <td>${i}</td>
+                    <td>${dataPro[i].title}</td>
+                    <td>${dataPro[i].price}</td>
+                    <td>${dataPro[i].taxes}</td>
+                    <td>${dataPro[i].ads}</td>
+                    <td>${dataPro[i].discount}</td>
+                    <td>${dataPro[i].total}</td>
+                    <td>${dataPro[i].category}</td>
+                    <td><button onclick="updeteData(${i})" id="updete">updete</button></td>
+                    <td><button onclick="delateData(${i})" id="delete">delate</button></td>
+         </tr>
+         `;
+    }
+   document.getElementById('tbody').innerHTML= table;
+   let btnDelete=document.getElementById('deleteAll');
+  
+   if(dataPro.length > 0){
+    btnDelete.innerHTML =`
+    <button onclick="deleteAll()" >delet All</button>
+      
+    `  
+   }else{
+    btnDelete.innerHTML='';
+   }
+}
+//*********************************************************** */
+//delete
+function delateData(i){
+    dataPro.splice(i,1);
+    localStorage.product=JSON.stringify(dataPro)  ;
+    showData();
+}
+//************************************************* */
+function deleteAll(){
+    dataPro=[];
+    localStorage.product=JSON.stringify(dataPro);
+    showData();
+}
+//************************************************************ */
+//update
+function updeteData(){
+    
 }
 
-// clear inputs
-//read
-//count
-//delete
-//update
 // search
 //clean data
 
